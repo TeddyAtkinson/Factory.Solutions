@@ -1,11 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Factory.Models
 {
-  public class EngineerMachine
+  public class FactoryContext : DbContext
   {
-    public int EngineerMachineId { get; set; }
-    public int EngineerId { get; set; }
-    public int MachineId { get; set; }
-    public virtual Engineer Engineer { get; set; }
-    public virtual Machine Machine { get; set; }
+    // include DbSets as needed
+    public DbSet<Machine> Machines { get; set; }
+    public DbSet<Engineer> Engineers { get; set; }
+    public DbSet<EngineerMachine> EngineerMachines { get; set; }
+
+
+    public FactoryContext(DbContextOptions options) : base(options) { }
   }
 }
+
