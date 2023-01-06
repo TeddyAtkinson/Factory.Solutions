@@ -97,6 +97,13 @@ namespace Factory.Controllers
       return RedirectToAction("Details", new { id = engineer.EngineerId });
     }
 
-
+    [HttpPost]
+    public ActionResult DeleteMachine(int id)
+    {
+      EngineerMachine thisEngineerMachine = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == id);
+      _db.EngineerMachines.Remove(thisEngineerMachine);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = thisEngineerMachine.EngineerId });
+    }
   }
 }
