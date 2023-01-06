@@ -1,3 +1,4 @@
-.vscode/
+.vscode
+appsettings.json
 bin
 obj
