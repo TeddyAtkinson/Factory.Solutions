@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+<h1>Dr. Sillystringz's Factory</h1>
+<h2>Engineer Registry</h2>
+
+@model Factory.Models.Engineer
+
+<p>Editing: @Model.Name</p>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  <input type="submit" value="Update" />
+
+}
+
+@using (Html.BeginForm("Delete", "Engineer"))
+{
+  @Html.Hidden("id", @Model.EngineerId)
+  <input type="submit" value="Delete" />
+}
+
+<p>@Html.ActionLink("Add Engineer", "Create")</p>
