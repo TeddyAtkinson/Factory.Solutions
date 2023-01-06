@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-// using Factory.Models;
+using Factory.Models;
 
 namespace Factory.Controllers
 {
