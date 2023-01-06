@@ -1,0 +1,17 @@
+@{
+  Layout="_Layout";
+}
+@model Factory.Models.Engineer
+
+<h1>Dr. Sillystringz's Factory</h1>
+<h2>Add Machine To Engineer: @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Select Machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Add Machine">
+}
