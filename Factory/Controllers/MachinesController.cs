@@ -16,10 +16,17 @@ namespace Factory.Controllers
       _db = db;
     }
 
+    // Routes
     public ActionResult Index()
     {
       List<Machine> model = _db.Machines.ToList();
       return View(model);
+    }
+
+    public ActionResult Create()
+    {
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View();
     }
   }
 }
