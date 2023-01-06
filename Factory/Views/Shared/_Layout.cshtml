@@ -12,6 +12,7 @@
   </head>
   <body>
     <div class="container d-flex flex-column jumbotron bg-white shadow">
+      @await Html.PartialAsync("NavBar")
       @RenderBody()
     </div>
   </body>
