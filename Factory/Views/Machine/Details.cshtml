@@ -1,0 +1,33 @@
+ @{
+  Layout = "_Layout";
+}
+@model Factory.Models.Machine
+@using Factory.Models
+@using System;
+<h1>Dr. Sillystringz's Factory</h1>
+<h2>Machine Center</h2>
+
+<p>Machine Name: @Html.DisplayFor(model => model.Name)</p>
+
+@if (@Model.JoinEngineerMachine.Count == 0)
+{
+  <p>This machine has no engineers working on it.</p>
+}
+else
+{
+  <h4>This machine is being worked on by:</h4>
+  <ul>
+    @foreach(EngineerMachine engineerMachine in Model.JoinEngineerMachine)
+    {
+      <li>Engineer Name: @engineerMachine.Engineer</li>
+      @using (Html.BeginForm("DeleteEngineer", "Machine", routeValues: new { id = engineerMachine.EngineerMachineId}))
+      {
+        <input type="submit" value="Remove Engineer">
+      }
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add Engineer To Machine", "AddEngineer", new { id = @Model.MachineId})</p>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = @Model.MachineId})</p>
+<p>@Html.ActionLink("Add New Machine", "Create")</p>
