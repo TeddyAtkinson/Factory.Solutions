@@ -19,7 +19,7 @@ else
   <ul>
     @foreach(EngineerMachine engineerMachine in Model.JoinEngineerMachine)
     {
-      <li>Machine Name: @engineerMachine.Machine</li>
+      <li>Machine Name: @engineerMachine.Machine.Name</li>
       @using (Html.BeginForm("DeleteMachine", "Engineer", routeValues: new { id = engineerMachine.EngineerMachineId}))
       {
         <input type="submit" value="Remove Machine">
