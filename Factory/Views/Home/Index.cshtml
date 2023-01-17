@@ -2,3 +2,31 @@
   Layout = "_Layout";
 }
 <h1>Dr. Sillystringz's Factory</h1>
+
+@using Factory.Models;
+
+<br><h3>Engineers</h3>
+@if (Model["engineers"].Length == 0)
+{
+  <p>No engineers yet..</p>
+  <p class="enlarge">@Html.ActionLink("Add Engineer", "Create", "Engineers")</p>
+}
+<ul>
+  @foreach (Engineer engineer in Model["engineers"])
+  {
+    <li class="enlarge">@Html.ActionLink(@engineer.Name, "Details", "Engineers", new { id = @engineer.EngineerId})</li>
+  }
+</ul>
+
+<h3>Machines</h3>
+@if (Model["machines"].Length == 0)
+{
+  <p>No machines yet...</p>
+  <p class="enlarge">@Html.ActionLink("Add Machine", "Create", "Machines")</p>
+} 
+<ul>
+  @foreach (Machine machine in Model["machines"])
+  {
+    <li class="enlarge">@Html.ActionLink(@machine.Name, "Details", "Machines", new { id = @machine.MachineId})</li>
+  }
+</ul>
