@@ -44,20 +44,22 @@ dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0
 dotnet restore
 ```
 
-5. To build & run program in development mode 
+5. Run the command to build the database on your SQL local host machine
+```
+dotnet ef database update
+```
+
+6. To build & run program in development mode 
  ```
  dotnet run
  ```
 
-6.  To build & run program in production mode 
+7.  To build & run program in production mode 
  ```
  dotnet run --launch-profile "production"
  ```
 
-7. Run the command to build the database on your SQL local host machine
-```
-dotnet ef database update
-```
+
 
 ## Known Bugs
 
@@ -67,7 +69,7 @@ dotnet ef database update
 
 MIT License
 
-Copyright & copy; 2022 Teddy Atkinson
+Copyright & copy; 2023 Teddy Atkinson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
